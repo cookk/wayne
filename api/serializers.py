@@ -1,14 +1,14 @@
-from django.contrib.auth.models import User, Group
-from rest_framework import serializers
+from rest_framework_mongoengine.serializers import DocumentSerializer
+
+from api.models import User, Post
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(DocumentSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'groups']
+        fields = '__all__'
 
-
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
+class PostSerializer(DocumentSerializer):
     class Meta:
-        model = Group
-        fields = ['url', 'name']
+        model = Post
+        fields = '__all__'

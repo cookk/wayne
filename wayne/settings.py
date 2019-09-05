@@ -107,6 +107,15 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
+
+# MongoDB
+from mongoengine import connect
+
+MONGO_DATABASE_NAME = 'wayne'
+MONGO_HOST = '127.0.0.1'
+MONGO_PORT = 27072
+connect(MONGO_DATABASE_NAME, host=MONGO_HOST, port=MONGO_PORT)
+
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
