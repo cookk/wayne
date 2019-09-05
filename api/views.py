@@ -1,20 +1,19 @@
-from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
+from rest_framework_mongoengine.viewsets import ModelViewSet as MongoModelViewSet
 
-from api.serializers import UserSerializer, GroupSerializer
+from api.models import User, Post
+from api.serializers import UserSerializer, PostSerializer
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = User.objects.all().order_by('-date_joined')
+class UserViewSet(MongoModelViewSet):
+    lookup_field = 'id'
     serializer_class = UserSerializer
 
+    def get_queryset(self):
+        return User.objects.all()
 
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
+class PostViewSet(MongoModelViewSet):
+    lookup_field = 'id'
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        return Post.objects.all()
