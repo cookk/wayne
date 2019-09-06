@@ -112,8 +112,8 @@ REST_FRAMEWORK = {
 from mongoengine import connect
 
 MONGO_DATABASE_NAME = 'wayne'
-MONGO_HOST = '127.0.0.1'
-MONGO_PORT = 27072
+MONGO_HOST = 'mongodb+srv://admin:1q2w3e4r!@wayne-b3m9q.mongodb.net/wayne?retryWrites=true&w=majority'
+MONGO_PORT = 27017
 connect(MONGO_DATABASE_NAME, host=MONGO_HOST, port=MONGO_PORT)
 
 # Internationalization
