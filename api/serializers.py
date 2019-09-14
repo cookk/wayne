@@ -8,6 +8,7 @@ class UserSerializer(DocumentSerializer):
         model = User
         fields = '__all__'
 
+
 class PostSerializer(DocumentSerializer):
     class Meta:
         model = Post
